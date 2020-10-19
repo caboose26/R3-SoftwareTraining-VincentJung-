@@ -1,2 +1,13 @@
 # R3-SoftwareTraining-VincentJung 
+//The process of creating this code and schematic is as follows. To create the schematic using two motors, pins 1, 16 , and 9 of the motor controller were attached to the Arduino 5V power source. Then the pin 8 of the motor controller was attached to the 9V battery power source. The ground pins of the controller and the ground of the battery were all attached to the same rail as the Arduino's ground. then the right motor was attached to the output pins 3 and 6 with positive at 3 and negative 6. The same was done for the left motor but at the output pins at 11 and 14 with the positive end at 14, and the negative end at 11. The digital pwm pins 6, 9, 10, and 11 from the Arduino were then placed in the input pins of the controller at pins 7, 2, 10, and 15 respectively. The potentiometer was attached to the same rail as the 5V power source from the Arduino, and the ground at the Arduino as well. Then the wiper was attached to the A0 analog input. Finally to design the dipswitches, since we were using internal pullups, the digital pins 2, 3, 4 , 5 from the Arduino were attached to the switches which led to ground, so when toggled off the switches were at HIGH. Using this schematic to create a code, all pins were initialized with a name, and variables for determining switch state and the value of the potentiometer were intialized as well. Afterwards, all the pins attached to the motor controller were set to output, the pins connected to the switch were set as input pullups, and the analog input from the potentiometer was set as input. Once the setup was complete the main loop began with setting the potentiometer value to variable pot, which was mapped from 1 to 1023, to 0 to 255 since the device can only read values from 0 to 255. Next a series of if and else statements were created. This was done to check the status of each switch and that only one switch was on per case. If no switch, or multiple switches were on, it would cause the motors to stop and turn off. Each case was as follows; switch1 = on - move forward, switch2 = on - move backward, switch3 = on - move left, switch4 = on - move right. For each case when a motor needed to move forward its positive input was initiated with the potentiometer value, and if it needed to move backward, the negative input pin on the controller was initiated.
+//Colour Coding: 
+//Green- board wiring
+//Red - power source
+//black - ground
+//blue - switches
+//orange - potentiometer wiper
+//pink - right motor
+//brown - left motor
+//grey - left motor control
+//turqoise - right motor control
  
